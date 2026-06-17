@@ -1,0 +1,56 @@
+BUY AND SELL STOCK :
+
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+CODE:
+class Solution(object):
+    def maxProfit(self, prices):
+        mini,maxi=9999,0
+        for p in prices:
+            if p<mini:
+                mini=p
+            profit=p-mini
+            if profit>maxi:
+                maxi=profit
+        return maxi
+
+NO. of employees who met the target:
+
+---
+There are n employees in a company, numbered from 0 to n - 1. Each employee i has worked for hours[i] hours in the company.
+
+The company requires each employee to work for at least target hours.
+
+You are given a 0-indexed array of non-negative integers hours of length n and a non-negative integer target.
+
+Return the integer denoting the number of employees who worked at least target hours.
+CODE:
+
+class Solution(object):
+    def numberOfEmployeesWhoMetTarget(self, hours, target):
+        c=0
+        for n in hours:
+            if n>=target:
+                c+=1
+        return c
+
+RICHEST CUSTOMER WEALTH :
+
+You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
+
+A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+
+CODE:
+class Solution(object):
+    def maximumWealth(self, accounts):
+        a=[]
+        for i in accounts:
+            a.append(sum(i))
+        return max(a)
+
+
+ 
+---

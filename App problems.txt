@@ -50,3 +50,63 @@ class Solution(object):
         for i in accounts:
             a.append(sum(i))
         return max(a)
+
+CONTAINER WITH MOST WATER :
+
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+Return the maximum amount of water a container can store.
+
+Notice that you may not slant the container.
+
+code:
+
+class Solution(object):
+    def maxArea(self, height):
+        i=0
+        j=len(height)-1
+        v=0
+        maxi=0
+        while i<j:
+            v=min(height[i],height[j])*(j-i)
+            if v>maxi:
+                maxi=max(maxi,v)
+            if height[i]>height[j]:
+                j-=1
+            else:
+                i+=1
+        return maxi
+
+ASSIGN COOKIES :
+
+Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
+
+Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
+
+ 
+
+Example 1:
+
+Input: g = [1,2,3], s = [1,1]
+Output: 1
+Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3. 
+And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.
+You need to output 1.
+
+Code:
+
+class Solution(object):
+    def findContentChildren(self, g, s):
+        g.sort()
+        s.sort()
+        c=0
+        ck=0
+        while c<len(g) and ck<len(s):
+            if s[ck]>=g[c]:
+                c+=1
+            ck+=1
+        return  c
+
+

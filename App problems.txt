@@ -50,7 +50,3 @@ class Solution(object):
         for i in accounts:
             a.append(sum(i))
         return max(a)
-
-
- 
----
